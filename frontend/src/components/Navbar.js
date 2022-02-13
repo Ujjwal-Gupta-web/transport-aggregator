@@ -15,9 +15,7 @@ const Navbar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         
-        <li className="nav-item">
-          <a className="nav-link active" href="/about">About</a>
-        </li>
+        
         <li className="nav-item dropdown">
           <div className="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             For Biz
@@ -38,6 +36,10 @@ const Navbar = () => {
             <li><a className="dropdown-item" href="/transporter/signup">Signup</a></li>
           </ul>
         </li>
+
+        {localStorage.getItem("user") && <li className="nav-item">
+          <button className="btn btn-danger text-white" href="/about" onClick={()=>{localStorage.removeItem("user"); window.location.reload();}}>Logout</button>
+        </li>}
       
       </ul>
       

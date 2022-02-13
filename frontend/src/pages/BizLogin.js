@@ -15,8 +15,13 @@ const BizLogin = () => {
     login_biz(obj).then(data=>{
       console.log(data);
       setIsDisabled(false);
+      if(data.tag===true){
       localStorage.setItem("user",data.token);
       window.location.reload();
+    }
+    else{
+      alert("Invalid Credentials");
+    }
     });
     
   }

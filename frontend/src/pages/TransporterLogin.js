@@ -12,10 +12,15 @@ function login(e){
     "transporter_password":document.getElementById("login_transporter_password").value
   }
   login_transporter(obj).then(data=>{
-      console.log(data);
-      setIsDisabled(false);
-      localStorage.setItem("user",data.token);
-      window.location.reload();
+    console.log(data);
+    setIsDisabled(false);
+    if(data.tag===true){
+    localStorage.setItem("user",data.token);
+    window.location.reload();
+  }
+  else{
+    alert("Invalid Credentials");
+  }
     })
 }
 
