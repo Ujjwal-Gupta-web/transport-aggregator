@@ -75,7 +75,7 @@ app.post("/api/biz/signup", async (req, res) => {
 
 app.post("/api/biz/login", async (req, res) => {
     const obj = req.body;
-    const result = await Biz.findOne({ biz_email });
+    const result = await Biz.findOne({ "biz_email":obj.biz_email });
     if (result) {
         bcrypt.compare(req.body.biz_password, result.biz_password, function (err, hashed) {
             if (hashed === true) {

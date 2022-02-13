@@ -38,8 +38,14 @@ const Navbar = () => {
         </li>
 
         {localStorage.getItem("user") && <li className="nav-item">
-          <button className="btn btn-danger text-white" href="/about" onClick={()=>{localStorage.removeItem("user"); window.location.reload();}}>Logout</button>
+          {(localStorage.getItem("userType")==='biz') && <a className="nav-link active mr-5" href="/biz/dashboard">Dashboard</a>}
+          {(localStorage.getItem("userType")==='transporter') && <a className="nav-link active mr-5" href="/transporter/dashboard">Dashboard</a>}
         </li>}
+
+        {localStorage.getItem("user") && <li className="nav-item">
+          <button className="btn btn-danger text-white" onClick={()=>{localStorage.removeItem("user"); localStorage.removeItem("userType"); window.location.reload();}}>Logout</button>
+        </li>}
+
       
       </ul>
       

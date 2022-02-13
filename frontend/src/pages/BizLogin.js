@@ -17,6 +17,7 @@ const BizLogin = () => {
       setIsDisabled(false);
       if(data.tag===true){
       localStorage.setItem("user",data.token);
+      localStorage.setItem("userType","biz");
       window.location.reload();
     }
     else{
