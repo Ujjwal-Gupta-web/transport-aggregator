@@ -27,3 +27,33 @@ export const login_transporter = async (obj)=>{
     return ans;
     
   }
+
+  export const get_transporter = async (id)=>{
+    const res=await fetch("http://localhost:5000/api/transporter/getUser",{
+      method:"POST",
+      body:JSON.stringify({"id":id}),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    const ans=await res.json();
+    // console.log(ans);
+
+    return ans;
+    
+  }
+
+
+  export const get_transporters = async ()=>{
+    const res=await fetch("http://localhost:5000/api/transporter/getAll",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    const ans=await res.json();
+    // console.log(ans);
+
+    return ans;
+    
+  }

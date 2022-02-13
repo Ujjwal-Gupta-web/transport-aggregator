@@ -8,6 +8,7 @@ var bcrypt = require('bcryptjs');
 const cors = require("cors");
 const Biz = require("./models/Biz");
 const Transporter = require("./models/Transporter");
+const Booking = require("./models/Booking");
 require('dotenv').config();
 app.use(cors());
 app.use(express.json());
@@ -23,11 +24,21 @@ mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then((
 });
 
 
-app.get("/", (req, res) => {
-    return res.json({ "message": "here we go" });
-})
+
 
 // For Business Apis
+
+app.post("/api/biz/getUser",async(req,res)=>{
+    let id=req.body.id;
+    let biz=await Biz.findOne({"_id":id});
+    if(biz){
+        let obj=biz;
+        
+        
+        return res.json({"tag":true,"message":obj});
+    }
+    return res.json({"tag":false});
+})
 
 app.post("/api/biz/signup", async (req, res) => {
     let { biz_email,
@@ -105,6 +116,28 @@ app.post("/api/biz/login_otp", (req, res) => {
 
 // For Transporter Apis
 
+app.post("/api/transporter/getUser",async(req,res)=>{
+    let id=req.body.id;
+    let transporter=await Transporter.findOne({"_id":id});
+    if(transporter){
+        
+        let obj=transporter;
+        return res.json({"tag":true,"message":obj});
+    }
+    return res.json({"tag":false});
+})
+
+app.post("/api/transporter/getAll",async(req,res)=>{
+    
+    let transporters=await Transporter.find();
+    if(transporters.length>0){
+        
+        let obj=transporters;
+        return res.json({"tag":true,"message":obj});
+    }
+    return res.json({"tag":false});
+})
+
 app.post("/api/transporter/signup", async (req, res) => {
     let { transporter_email,
         transporter_driver_name,
@@ -170,6 +203,36 @@ app.post("/api/transporter/login_otp", (req, res) => {
     const obj = req.body;
     return res.json(obj);
 })
+
+
+// Bookings
+
+app.post("/api/set_booking",(req,res)=>{
+    const {bizId,
+        transporterId}=req.body;
+
+        const d = new Date();
+        let time = d.getTime();
+
+        const booking=new Booking({
+            bizId,
+        transporterId,
+        time
+        })
+
+        booking.save(function (error, document) {
+            if (error) {
+                console.error(error)
+                return res.json({ "message": "try again", "tag": false })
+            }
+
+            return res.json({ "message": "Success", tag: true })
+        })
+        
+        
+
+})
+
 
 
 
