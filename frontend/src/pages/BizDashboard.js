@@ -107,10 +107,23 @@ const BizDashboard = () => {
                 <div>
                   <h5 className="text-primary text-capitalize">{t.transporter_driver_name}</h5>
                   <p className="text-capitalize" style={{ fontSize: "14px" }}>({t.transporter_name})</p>
+                  <p style={{ fontSize: "14px" }}>Truck Capacity : ({t.transporter_truck_capacity} tons)</p>
+                  <p style={{ fontSize: "14px" }}>Driving Experience : ({t.transporter_experience} years)</p>
                 </div>
                 <Button variant="outline-success"
                   onClick={() => {
-                    set_booking({ "transporterId": t._id, "bizId": user._id }).then(data => alert(data.message));
+                    set_booking({ 
+                      "transporterId": t._id, 
+                      "bizId": user._id,
+                      "biz_name":user.biz_name,
+                      "biz_city":user.biz_city,
+                      "biz_state":user.biz_state,
+                      "biz_email":user.biz_email,
+                      "biz_mobile":user.biz_mobile,
+                      "biz_nature":user.biz_nature,
+                      "biz_capacity":user.biz_capacity,
+                      "status":"Pending"
+                      }).then(data => alert(data.message));
                   }}
                 >Book</Button>
               </div>

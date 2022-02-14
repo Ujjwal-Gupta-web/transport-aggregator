@@ -57,3 +57,36 @@ export const login_transporter = async (obj)=>{
     return ans;
     
   }
+
+  export const get_transporter_login_otp = async (obj)=>{
+    const res=await fetch("http://localhost:5000/api/transporter/get_otp",{
+      method:"POST",
+      body:JSON.stringify(obj),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    const ans=await res.json();
+    // console.log(ans);
+
+    return ans;
+    
+  }
+
+  export const verify_transporter_login_otp = async (obj)=>{
+    const res=await fetch("http://localhost:5000/api/transporter/verify_otp",{
+      method:"POST",
+      body:JSON.stringify(obj),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    const ans=await res.json();
+    // console.log(ans);
+
+    return ans;
+    
+  }
+
+
+  
