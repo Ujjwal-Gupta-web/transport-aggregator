@@ -340,10 +340,7 @@ app.put("/api/update_booking", async (req, res) => {
                 return res.json({ "message": "try again", "tag": false })
             }
 
-            return res.json({ "message": "Success", tag: true })
-        })
-
-        email(biz_email, "Booking Done - Check out the Details",
+            email(biz_email, "Booking Done - Check out the Details",
             `\nDriver Name : ${transporter.transporter_driver_name}\n
         Mobile : ${transporter.transporter_mobile}\n
         Transporter Name : ${transporter.transporter_name}\n
@@ -351,6 +348,11 @@ app.put("/api/update_booking", async (req, res) => {
         Truck Capacity : ${transporter.transporter_truck_capacity}\n
         `
         );
+
+            return res.json({ "message": "Sent", tag: true })
+        })
+
+       
 
     }
     else {

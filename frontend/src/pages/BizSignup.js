@@ -22,7 +22,7 @@ const BizSingup = () => {
     }
 
     register_biz(obj).then(data => {
-      console.log(data);
+      // console.log(data);
       setIsDisabled(false);
     });
   }

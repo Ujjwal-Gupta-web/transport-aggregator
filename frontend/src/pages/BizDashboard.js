@@ -11,14 +11,14 @@ const BizDashboard = () => {
 
   useEffect(() => {
     get_biz(JSON.parse(atob(localStorage.getItem("user").split(".")[1])).id).then((data) => {
-      console.log(data.message);
+      
       setUser(data.message);
 
       let city = data.message.biz_city;
 
       get_transporters().then((t) => {
         if (t.tag) {
-          console.log(t.message);
+          
           let arr = [];
           for (let i in t.message) {
             for (let j in t.message[i].transporter_routes_arr) {
@@ -31,8 +31,7 @@ const BizDashboard = () => {
               }
             }
           }
-          console.log("This is final array : ")
-          console.log(arr)
+        
           setTransporters(arr);
         }
       })

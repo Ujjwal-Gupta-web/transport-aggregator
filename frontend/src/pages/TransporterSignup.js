@@ -39,7 +39,7 @@ const TransporterSignup = () => {
       "transporter_routes_arr": routes,
     }
 
-    register_transporter(obj).then(data => console.log(data));
+    register_transporter(obj).then(data => alert(data.message));
   }
 
   return (

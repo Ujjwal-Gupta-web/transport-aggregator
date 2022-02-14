@@ -12,7 +12,7 @@ const TransporterLogin = () => {
       "transporter_password": document.getElementById("login_transporter_password").value
     }
     login_transporter(obj).then(data => {
-      console.log(data);
+      // console.log(data);
       setIsDisabled(false);
       if (data.tag === true) {
         localStorage.setItem("user", data.token);
@@ -90,7 +90,7 @@ const TransporterLogin = () => {
               <div className="mb-3">
                 <button onClick={()=>{
                   let obj={"transporter_email":document.getElementById("login_otp_transporter_email").value};
-                  get_transporter_login_otp(obj).then(data=>console.log(data));
+                  get_transporter_login_otp(obj).then(data=>alert(data.message));
                 }}>Get OTP</button>
               </div>
 
@@ -113,8 +113,7 @@ const TransporterLogin = () => {
                         localStorage.setItem("userType", "transporter");
                       }
                       alert(data.message);
-                      console.log(data);
-                      window.location.realod();
+                      window.location.reload();
                       }
                   );
                 }}

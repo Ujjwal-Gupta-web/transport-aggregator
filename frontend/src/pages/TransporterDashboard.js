@@ -44,13 +44,12 @@ const BizDashboard = () => {
                   onClick={() => {
                     let obj=booking;
                     obj.status="Accepted";
-                    console.log(obj)
-                    update_booking(obj).then(data=>console.log(data))
+                    update_booking(obj).then(data=>alert(data.message))
                   }}
                 >Accept</Button>
                 <Button variant="outline-danger"
                   onClick={() => {
-                    update_booking(booking).then(data=>console.log(data))
+                    update_booking(booking).then(data=>alert(data.message))
                   }}
                 >Decline</Button>
                 

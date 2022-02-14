@@ -13,7 +13,6 @@ const BizLogin = () => {
     }
   
     login_biz(obj).then(data=>{
-      console.log(data);
       setIsDisabled(false);
       if(data.tag===true){
       localStorage.setItem("user",data.token);
@@ -87,7 +86,7 @@ const BizLogin = () => {
               <div className="mb-3">
                 <button onClick={()=>{
                   let obj={"biz_email":document.getElementById("login_otp_biz_email").value};
-                  get_biz_login_otp(obj).then(data=>console.log(data));
+                  get_biz_login_otp(obj).then(data=>alert(data.message));
                 }}>Get OTP</button>
               </div>
 
@@ -110,8 +109,8 @@ const BizLogin = () => {
                         localStorage.setItem("userType", "biz");
                       }
                       alert(data.message);
-                      console.log(data);
-                      window.location.realod();
+                      
+                      window.location.reload();
                       }
                   );
                 }}
