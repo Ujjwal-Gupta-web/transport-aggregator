@@ -1,5 +1,5 @@
 export const set_booking = async (obj)=>{
-    const res=await fetch("http://localhost:5000/api/set_booking",{
+    const res=await fetch("/api/set_booking",{
       method:"POST",
       body:JSON.stringify(obj),
       headers:{
@@ -11,7 +11,7 @@ export const set_booking = async (obj)=>{
   }
 
 export const get_bookings = async ()=>{
-    const res=await fetch("http://localhost:5000/api/get_bookings",{
+    const res=await fetch("/api/get_bookings",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -22,7 +22,7 @@ export const get_bookings = async ()=>{
   }
 
 export const update_booking = async (obj)=>{
-    const res=await fetch("http://localhost:5000/api/update_booking",{
+    const res=await fetch("/api/update_booking",{
       method:"PUT",
       body:JSON.stringify(obj),
       headers:{

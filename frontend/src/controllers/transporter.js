@@ -1,5 +1,5 @@
 export const register_transporter = async (obj)=>{
-    const res=await fetch("http://localhost:5000/api/transporter/signup",{
+    const res=await fetch("/api/transporter/signup",{
       method:"POST",
       body:JSON.stringify(obj),
       headers:{
@@ -14,7 +14,7 @@ export const register_transporter = async (obj)=>{
   }
   
 export const login_transporter = async (obj)=>{
-    const res=await fetch("http://localhost:5000/api/transporter/login",{
+    const res=await fetch("/api/transporter/login",{
       method:"POST",
       body:JSON.stringify(obj),
       headers:{
@@ -29,7 +29,7 @@ export const login_transporter = async (obj)=>{
   }
 
   export const get_transporter = async (id)=>{
-    const res=await fetch("http://localhost:5000/api/transporter/getUser",{
+    const res=await fetch("/api/transporter/getUser",{
       method:"POST",
       body:JSON.stringify({"id":id}),
       headers:{
@@ -45,7 +45,7 @@ export const login_transporter = async (obj)=>{
 
 
   export const get_transporters = async ()=>{
-    const res=await fetch("http://localhost:5000/api/transporter/getAll",{
+    const res=await fetch("/api/transporter/getAll",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -59,7 +59,7 @@ export const login_transporter = async (obj)=>{
   }
 
   export const get_transporter_login_otp = async (obj)=>{
-    const res=await fetch("http://localhost:5000/api/transporter/get_otp",{
+    const res=await fetch("/api/transporter/get_otp",{
       method:"POST",
       body:JSON.stringify(obj),
       headers:{
@@ -74,7 +74,7 @@ export const login_transporter = async (obj)=>{
   }
 
   export const verify_transporter_login_otp = async (obj)=>{
-    const res=await fetch("http://localhost:5000/api/transporter/verify_otp",{
+    const res=await fetch("/api/transporter/verify_otp",{
       method:"POST",
       body:JSON.stringify(obj),
       headers:{
