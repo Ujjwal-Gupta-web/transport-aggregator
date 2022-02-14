@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { login_transporter,get_transporter_login_otp,verify_transporter_login_otp } from '../controllers/transporter'
+import { login_transporter, get_transporter_login_otp, verify_transporter_login_otp } from '../controllers/transporter'
 import { Form, Button } from "react-bootstrap";
 
 const TransporterLogin = () => {
@@ -88,9 +88,9 @@ const TransporterLogin = () => {
               </div>
 
               <div className="mb-3">
-                <button onClick={()=>{
-                  let obj={"transporter_email":document.getElementById("login_otp_transporter_email").value};
-                  get_transporter_login_otp(obj).then(data=>alert(data.message));
+                <button onClick={() => {
+                  let obj = { "transporter_email": document.getElementById("login_otp_transporter_email").value };
+                  get_transporter_login_otp(obj).then(data => alert(data.message));
                 }}>Get OTP</button>
               </div>
 
@@ -100,40 +100,40 @@ const TransporterLogin = () => {
               </div>
 
               <div className="mb-3">
-                <button onClick={()=>{
-                  let obj={
-                    "transporter_email":document.getElementById("login_otp_transporter_email").value,
-                    "otp":document.getElementById("login_otp_transporter").value
+                <button onClick={() => {
+                  let obj = {
+                    "transporter_email": document.getElementById("login_otp_transporter_email").value,
+                    "otp": document.getElementById("login_otp_transporter").value
                   };
                   verify_transporter_login_otp(obj).then(
-                    data=>{
-                      
-                      if(data.tag===true){
+                    data => {
+
+                      if (data.tag === true) {
                         localStorage.setItem("user", data.token);
                         localStorage.setItem("userType", "transporter");
+                        window.location.reload();
                       }
                       alert(data.message);
-                      window.location.reload();
-                      }
+                    }
                   );
                 }}
                 >Login</button>
               </div>
 
             </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+
           </div>
 
 
         </div>
       </div>
-  
- 
 
-    
+
+
+
     </>
   )
 }
