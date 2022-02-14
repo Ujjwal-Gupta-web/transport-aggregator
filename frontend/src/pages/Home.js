@@ -18,8 +18,8 @@ const Home = () => {
               <hr />
 
               <div className="d-flex justify-content-start">
-                <button className='btn border border-dark fw-bold' style={{ background: "#2fb8ff42" }}>For Biz</button>
-                <button className='btn border border-dark fw-bold mx-2' style={{ background: "#2fb8ff42" }}>For Transproters</button>
+                <a  href="/biz/login"className='btn border border-dark fw-bold' style={{ background: "#2fb8ff42" }}>For Biz</a>
+                <a href="/transporter/login" className='btn border border-dark fw-bold mx-2' style={{ background: "#2fb8ff42" }}>For Transproters</a>
               </div>
 
             </div>
@@ -31,15 +31,7 @@ const Home = () => {
         </div>
 
         
-        <div className='container my-5'>
-        <h3 className='text-center'>Heading</h3>
-        <div className="container p-5 flex-wrap-reverse d-flex align-items-center justify-content-between">
-        <div>Card-1</div>
-        <div>Card-2</div>
-        <div>Card-3</div>
-        <div>Card-4</div>
-        </div>
-        </div>
+       
 
       </>
 
