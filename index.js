@@ -369,7 +369,7 @@ app.put("/api/update_booking", async (req, res) => {
 })
 
 app.post("/api/get_bookings", async (req, res) => {
-    const bookings = await Booking.find();
+    const bookings = await Booking.find().sort({ "time": -1 });
     if (bookings.length > 0) {
 
         let obj = bookings;
