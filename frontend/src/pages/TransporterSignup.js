@@ -3,9 +3,11 @@ import { register_transporter } from '../controllers/transporter';
 
 const TransporterSignup = () => {
 
+  let [isDisabled, setIsDisabled] = useState(false);
+
   function signup(e) {
     e.preventDefault();
-
+    setIsDisabled(true);
     let routes = [
       {
         from_city: document.getElementById("signup_transporter_from_city1").value,
@@ -164,7 +166,7 @@ const TransporterSignup = () => {
               <label htmlFor="signup_transporter_password" className="form-label">Password :</label>
               <input className="form-control" type="password" id="signup_transporter_password" required />
             </div>
-            <button className='btn border border-dark my-2' type="submit" style={{ background: "#2fb8ff42" }}>Signup</button>
+            <button disabled={isDisabled} className='btn border border-dark my-2' type="submit" style={{ background: "#2fb8ff42" }}>Signup</button>
           </form>
           <div className='text-center'>
 
