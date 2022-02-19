@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { register_transporter } from '../controllers/transporter';
 
 const TransporterSignup = () => {
