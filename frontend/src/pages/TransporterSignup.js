@@ -39,7 +39,14 @@ const TransporterSignup = () => {
       "transporter_routes_arr": routes,
     }
 
-    register_transporter(obj).then(data => alert(data.message));
+    register_transporter(obj).then(data => {
+      // console.log(data);
+      setIsDisabled(false);
+      alert(data.message);
+      if(data.message===true){
+        window.location.reload();
+      }
+    });
   }
 
   return (

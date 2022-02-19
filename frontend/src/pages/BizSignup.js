@@ -24,6 +24,10 @@ const BizSingup = () => {
     register_biz(obj).then(data => {
       // console.log(data);
       setIsDisabled(false);
+      alert(data.message);
+      if(data.message===true){
+        window.location.reload();
+      }
     });
   }
 
